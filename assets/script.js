@@ -87,7 +87,6 @@ function renderBooks(bookData) {
 
   const containerIncomplete = document.getElementById("incompleteBookList");
   const containerComplete = document.getElementById("completeBookList");
-  const buttonSubmit = document.getElementById("bookFormSubmit");
 
   containerIncomplete.innerHTML = "";
   containerComplete.innerHTML = "";
@@ -139,7 +138,6 @@ function renderBooks(bookData) {
     containerComplete.append(bookItem);
 
     bookItem.getRootNode().addEventListener("click", function (event) {
-      buttonSubmit.innerText = "Update Buku ke Rak";
       updateItem(event.target.parentElement);
     });
   }
@@ -232,6 +230,7 @@ function updateItem(itemElement) {
   document.getElementById("bookFormAuthor").value = author;
   document.getElementById("bookFormYear").value = year;
   document.getElementById("bookFormIsComplete").checked = isComplete;
+  document.getElementById("bookFormSubmit").innerText = "Update Buku ke Rak";
 
   for (let index = 0; index < bookData.length; index++) {
     if (bookData[index].id == id) {
